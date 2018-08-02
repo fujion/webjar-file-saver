@@ -8,7 +8,7 @@
 	</parent>
 
 	<name>File Saver Polyfill</name>
-	<artifactId>fujion-file-saver</artifactId>
+	<artifactId>webjar-file-saver</artifactId>
 	<version>1.3.8-SNAPSHOT</version>
 	<description>Implements the saveAs() FileSaver interface in browsers that do not natively support it.</description>
 	
