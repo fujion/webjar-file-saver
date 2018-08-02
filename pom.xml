@@ -9,7 +9,7 @@
 
 	<name>File Saver Polyfill</name>
 	<artifactId>webjar-file-saver</artifactId>
-	<version>1.3.8-SNAPSHOT</version>
+	<version>1.3.8</version>
 	<description>Implements the saveAs() FileSaver interface in browsers that do not natively support it.</description>
 	
 	<properties>
@@ -33,11 +33,11 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<get src="${src.url}" dest="${src.zipdir}/src.zip"/>
+								<get src="${src.url}" dest="${src.zipdir}/src.zip" />
 								<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
 								<move todir="${webjar.target}">
-									<fileset dir="${src.rootdir}/src" includes="*.*"/>
-									<fileset dir="${src.rootdir}" includes="*.md"/>
+									<fileset dir="${src.rootdir}/src" includes="*.*" />
+									<fileset dir="${src.rootdir}" includes="*.md" />
 								</move>
 							</target>
 						</configuration>
@@ -50,4 +50,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+  <scm>
+    <tag>1.3.8</tag>
+  </scm>
 </project>
