@@ -13,9 +13,6 @@
 	<description>Implements the saveAs() FileSaver interface in browsers that do not natively support it.</description>
 	
 	<properties>
-		<skip.minification>false</skip.minification>
-		<src.url>https://github.com/eligrey/FileSaver.js/archive/v${src.version}.zip</src.url>
-		<src.top>FileSaver.js-${src.version}</src.top>
 		<systemjs>
 			{
 				"paths": {
@@ -24,9 +21,21 @@
 			}			
 		</systemjs>
 	</properties>
-	
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>npm-install</id>
+						<configuration>
+							<skip>false</skip>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -34,12 +43,22 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<get src="${src.url}" dest="${src.zipdir}/src.zip" />
-								<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
-								<move todir="${webjar.target}">
-									<fileset dir="${src.rootdir}/src" includes="*.*" />
-									<fileset dir="${src.rootdir}" includes="*.md" />
-								</move>
+								<copy tofile="${src.rootdir}/package.json" file="${basedir}/package-template.json">
+									<filterchain>
+										<expandproperties />
+									</filterchain>
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>postcompile</id>
+						<configuration>
+							<target>
+								<copy todir="${webjar.target}">
+									<fileset dir="${src.rootdir}/node_modules/file-saver" includes="*.md" />
+									<fileset dir="${src.rootdir}/node_modules/file-saver/dist" includes="*.*" />
+								</copy>
 							</target>
 						</configuration>
 					</execution>
