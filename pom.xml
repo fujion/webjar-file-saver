@@ -12,16 +12,6 @@
 	<version>2.0.2-SNAPSHOT</version>
 	<description>Implements the saveAs() FileSaver interface in browsers that do not natively support it.</description>
 	
-	<properties>
-		<systemjs>
-			{
-				"paths": {
-					"file-saver": "FileSaver.js"
-				}
-			}			
-		</systemjs>
-	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -30,9 +20,6 @@
 				<executions>
 					<execution>
 						<id>npm-install</id>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
