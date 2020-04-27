@@ -1,5 +1,5 @@
 {
-  "imports": {
-    "file-saver": "FileSaver.js"
+  "paths": {
+    "file-saver": "dist/FileSaver.js"
   }
 }

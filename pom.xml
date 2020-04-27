@@ -43,8 +43,7 @@
 						<configuration>
 							<target>
 								<copy todir="${webjar.target}">
-									<fileset dir="${src.rootdir}/node_modules/file-saver" includes="*.md" />
-									<fileset dir="${src.rootdir}/node_modules/file-saver/dist" includes="*.*" />
+									<fileset dir="${src.rootdir}/node_modules/file-saver" includes="dist/,*.md" />
 								</copy>
 							</target>
 						</configuration>
