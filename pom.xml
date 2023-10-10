@@ -29,7 +29,7 @@
 								<rule>file_exists import-map.json</rule>
 								<rule>file_contains LICENSE.md "MIT License"</rule>
 								<rule>file_exists README.md</rule>
-								<rule>file_exists dist/fileSaver.js</rule>
+								<rule>file_exists dist/FileSaver.js</rule>
 							</rules>
 						</configuration>
 					</execution>
