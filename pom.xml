@@ -9,11 +9,32 @@
 
 	<name>File Saver Polyfill</name>
 	<artifactId>webjar-file-saver</artifactId>
-	<version>2.0.5-11</version>
+	<version>2.0.5-11-SNAPSHOT</version>
 	<description>Implements the saveAs() FileSaver interface in browsers that do not natively support it.</description>
-	
+
+	<properties>
+		<npm-install.skip>false</npm-install.skip>
+	</properties>
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.fujion.webjars</groupId>
+				<artifactId>webjar-validator-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>validate-webjar</id>
+						<configuration>
+							<rules>
+								<rule>file_exists import-map.json</rule>
+								<rule>file_contains LICENSE.md "MIT License"</rule>
+								<rule>file_exists README.md</rule>
+								<rule>file_exists dist/fileSaver.js</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
