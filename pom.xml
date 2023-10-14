@@ -12,10 +12,6 @@
 	<version>2.0.5-11-SNAPSHOT</version>
 	<description>Implements the saveAs() FileSaver interface in browsers that do not natively support it.</description>
 
-	<properties>
-		<npm-install.skip>false</npm-install.skip>
-	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -23,7 +19,7 @@
 				<artifactId>webjar-validator-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>validate-webjar</id>
+						<id>webjar-validate</id>
 						<configuration>
 							<rules>
 								<rule>file_exists import-map.json</rule>
@@ -42,7 +38,7 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<copy todir="${src.rootdir}">
+								<copy todir="${webjar.staging}">
 									<fileset dir="${basedir}/staging" />
 									<filterchain>
 										<expandproperties />
