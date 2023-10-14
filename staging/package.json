@@ -2,7 +2,13 @@
   "name": "${project.artifactId}",
   "version": "${version.unrevise}",
   "description": "${project.description}",
+  "scripts": {
+    "postinstall": "gulp"
+  },
   "dependencies": {
     "file-saver": "${version.unrevise}"
-    }
+    },
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
 }

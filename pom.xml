@@ -42,20 +42,11 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<copy tofile="${src.rootdir}/package.json" file="${basedir}/package-template.json">
+								<copy todir="${src.rootdir}">
+									<fileset dir="${basedir}/staging" />
 									<filterchain>
 										<expandproperties />
 									</filterchain>
-								</copy>
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>postcompile</id>
-						<configuration>
-							<target>
-								<copy todir="${webjar.target}">
-									<fileset dir="${src.rootdir}/node_modules/file-saver" includes="dist/,*.md" />
 								</copy>
 							</target>
 						</configuration>
